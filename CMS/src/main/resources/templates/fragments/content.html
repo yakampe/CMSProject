@@ -1,14 +1,17 @@
 
 
 <div class="container">
-<th:block th:each="page : ${pages}">
+<th:block th:each="page, iterStat : ${pages}">
 <th:block th:if="${page.DisplayOnMainPage == true}">
 <div class="row">
 	<div class="col-xs-12">
 		<h1 th:text="${page.pageTitle}">Title</h1>
-		<div th:utext="${page.content}">Content</div>
+		<div class="pageContent" th:utext="${page.content}">Content</div>
 	</div>
 </div>
+<th:block th:if="${iterStat.index < iterStat.size-2}">
+<hr class="mt-2 mb-2 myhr">
+</th:block>
 </th:block>
 </th:block>
 </div>

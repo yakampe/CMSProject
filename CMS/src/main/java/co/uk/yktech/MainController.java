@@ -47,7 +47,7 @@ public class MainController {
 		for(int i = 0; i < 5; i++) {
 			CMSPage c = new CMSPage();
 			c.setContent(content);
-			c.setPageTitle("Page" + i);
+			c.setPageTitle("Page " + i);
 			c.setPageOrder(i+1);
 			c.setDisplayOnMainPage(true);
 			CMSPageRepo.save(c);

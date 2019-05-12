@@ -10,7 +10,7 @@
 }
 
 #divider2 {
-	transform: skewY(-7deg);
+	transform: skewY(-9deg);
 	position: absolute;
 	z-index: 5;
 	top: 95vh;

@@ -5,8 +5,9 @@
 #frame {
 	height: 100vh;
 }
-#pictureframe{
-	height:40vh;
+
+#pictureframe {
+	height: 40vh;
 }
 
 #bgVideo {
@@ -39,15 +40,34 @@
 #content-wrap {
 	position: relative;
 	z-index: 6;
+	position: relative;
 }
 
 #content-wrap p {
 	color: black;
 }
 
+#content-wrap h1 {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.pageContent {
+	padding-bottom: 1em	;
+}
+
+.myhr {
+	border: 0;
+	height: 2px;
+	background-image: -webkit-linear-gradient(left, #ffffff, #333, #ffffff);
+	background-image: -moz-linear-gradient(left, #ffffff, #333, #ffffff);
+	background-image: -ms-linear-gradient(left, #ffffff, #333, #ffffff);
+	background-image: -o-linear-gradient(left, #ffffff, #333, #ffffff);
+}
+
 .copyright-footer {
-	position:relative;
-	z-index:6;
+	position: relative;
+	z-index: 6;
 	padding: 1% 0% 1% 0%;
 	bottom: 0;
 	width: 100%;

@@ -14,6 +14,7 @@ public class CMSPage {
 	private String pageTitle;
 	private String content;
 	private boolean isDisplayOnMainPage;
+	private String headerImage;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,6 +57,14 @@ public class CMSPage {
 
 	public void setDisplayOnMainPage(boolean isDisplayOnMainPage) {
 		this.isDisplayOnMainPage = isDisplayOnMainPage;
+	}
+
+	public String getHeaderImage() {
+		return headerImage;
+	}
+
+	public void setHeaderImage(String headerImage) {
+		this.headerImage = headerImage;
 	}
 
 	
