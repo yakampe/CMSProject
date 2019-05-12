@@ -1,3 +1,3 @@
-<footer class="text-center copyright-footer">
-  <p>&copy; <th:block th:utext="${#dates.format(#dates.createNow(), 'yyyy')}"></th:block> Yanis Kampe </p> 
+<footer class="text-center copyright-footer" id="footer">
+  &copy; <th:block th:utext="${#dates.format(#dates.createNow(), 'yyyy')}"></th:block> <th:block th:utext="#{copyright}"></th:block> 
 </footer>
