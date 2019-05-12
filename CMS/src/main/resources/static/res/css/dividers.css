@@ -1,0 +1,76 @@
+#divider1 {
+	transform: skewY(6deg);
+	position: absolute;
+	z-index: 5;
+	top: 98vh;
+	height: 8em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.75;
+}
+
+#divider2 {
+	transform: skewY(-7deg);
+	position: absolute;
+	z-index: 5;
+	top: 95vh;
+	height: 10em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.5;
+}
+
+#divider3 {
+	transform: skewY(-7deg);
+	position: absolute;
+	z-index: 5;
+	top: 98vh;
+	height: 10em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.5;
+}
+
+#divider4 {
+	transform: skewY(-6deg);
+	position: absolute;
+	z-index: 5;
+	top: 100vh;
+	height: 10em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.65;
+}
+
+#divider5 {
+	transform: skewY(-5deg);
+	position: absolute;
+	z-index: 5;
+	top: 102vh;
+	height: 10em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.75;
+}
+
+#divider6 {
+	transform: skewY(8deg);
+	position: absolute;
+	z-index: 5;
+	top: 102vh;
+	height: 8em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.65;
+}
+
+#divider7 {
+	transform: skewY(9deg);
+	position: absolute;
+	z-index: 5;
+	top: 105vh;
+	height: 8em;
+	background-color: white;
+	width: 100%;
+	opacity: 1;
+}
