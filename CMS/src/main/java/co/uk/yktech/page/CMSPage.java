@@ -1,5 +1,6 @@
 package co.uk.yktech.page;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,8 +10,10 @@ import javax.persistence.Id;
 public class CMSPage {
 
 	private int ID;
+	private int pageOrder;
 	private String pageTitle;
 	private String content;
+	private boolean isDisplayOnMainPage;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +32,8 @@ public class CMSPage {
 	public void setPageTitle(String pageTitle) {
 		this.pageTitle = pageTitle;
 	}
-
+	
+	@Column(columnDefinition="TEXT")
 	public String getContent() {
 		return content;
 	}
@@ -38,4 +42,22 @@ public class CMSPage {
 		this.content = content;
 	}
 
+	public int getPageOrder() {
+		return pageOrder;
+	}
+
+	public void setPageOrder(int pageOrder) {
+		this.pageOrder = pageOrder;
+	}
+
+	public boolean isDisplayOnMainPage() {
+		return isDisplayOnMainPage;
+	}
+
+	public void setDisplayOnMainPage(boolean isDisplayOnMainPage) {
+		this.isDisplayOnMainPage = isDisplayOnMainPage;
+	}
+
+	
+	
 }

@@ -2,9 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout">
+      xmlns:sec="http://www.thymeleaf.org">
 <head>
 <th:block th:insert="fragments/header :: head">
 </th:block>
@@ -12,24 +10,17 @@
 <title th:if="${page == null}">Page Not Found</title>
 </head>
 <body>
-<h1>This is homepage</h1>
-
-Logged user: <span sec:authentication="name"></span>
-
-<br>
-
-<span th:unless="${page == null}" th:text="${page.content}"></span>
+<div th:insert="fragments/navbar" id="navbar-wrap"></div>
+<th:block th:insert="fragments/pictureframe">
+</th:block>
+<div class="container" th:unless="${page == null}" th:utext="${page.content}" id="content-wrap"></div>
 
 
-<a th:href="@{/login}">Login</a>
-<br>
-<a th:href="@{/admin/home}">admin home</a>
-<br>
-<a th:href="@{/}">home</a>
-<br>
-<a th:href="@{/logout}">logout</a>
-<br>
+<div th:insert="fragments/footer" id="footer-wrap"></div>
 
 
 </body>
 </html>
+
+
+
