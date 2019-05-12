@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="fragments/header :: head">
+</th:block>
+<title>Page Title</title>
+</head>
+<body>
+This is homepage
+
+Logged user: <span sec:authentication="name"></span>
+
+<br>
+
+
+<a th:href="@{/login}">Login</a>
+<br>
+<a th:href="@{/admin/home}">admin home</a>
+<br>
+<a th:href="@{/}">home</a>
+<br>
+<a th:href="@{/logout}">logout</a>
+<br>
+
+
+
+</body>
+</html>
