@@ -9,22 +9,8 @@
 <title>Page Title</title>
 </head>
 <body>
-This is homepage
-
-Logged user: <span sec:authentication="name"></span>
-
-<br>
-
-
-<a th:href="@{/login}">Login</a>
-<br>
-<a th:href="@{/admin/home}">admin home</a>
-<br>
-<a th:href="@{/}">home</a>
-<br>
-<a th:href="@{/logout}">logout</a>
-<br>
-
+<div th:insert="fragments/content" id="content"></div>
+<div th:insert="fragments/footer" id="footer"></div>
 
 
 </body>
