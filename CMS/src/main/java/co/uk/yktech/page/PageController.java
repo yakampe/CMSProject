@@ -20,8 +20,11 @@ public class PageController {
 	public String getPage(@PathVariable String pageTitle, Model theModel) {
 		logger.info("Loading page with title == " +pageTitle);
 		try {
+		Iterable<CMSPage> pages = CMSPageRepo.findAll();
+		theModel.addAttribute("pages", pages);
 		CMSPage cmspage = CMSPageRepo.findByPageTitle(pageTitle).get(0);
 		theModel.addAttribute("page", cmspage);
+		theModel.addAttribute("pages", pages);
 		} catch(IndexOutOfBoundsException e) {
 		logger.warn("Page Not Found");
 		}

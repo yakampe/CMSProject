@@ -53,7 +53,7 @@
 }
 
 .pageContent {
-	padding-bottom: 1em	;
+	padding-bottom: 1em;
 }
 
 .myhr {
@@ -63,6 +63,16 @@
 	background-image: -moz-linear-gradient(left, #ffffff, #333, #ffffff);
 	background-image: -ms-linear-gradient(left, #ffffff, #333, #ffffff);
 	background-image: -o-linear-gradient(left, #ffffff, #333, #ffffff);
+}
+
+.ico-filter {
+	filter: invert(48%) sepia(2%) saturate(2476%) hue-rotate(33deg)
+		brightness(118%) contrast(119%);
+}
+
+.ico-filter:hover {
+	filter: invert(48%) sepia(22%) saturate(2476%) hue-rotate(33deg)
+		brightness(118%) contrast(119%);
 }
 
 .copyright-footer {

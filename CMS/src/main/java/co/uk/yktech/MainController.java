@@ -20,8 +20,8 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home(Model theModel) {
-		Iterable<CMSPage> randomList = CMSPageRepo.findAll();
-		theModel.addAttribute("pages", randomList);
+		Iterable<CMSPage> pages = CMSPageRepo.findAll();
+		theModel.addAttribute("pages", pages);
 		return "homepage";
 	}
 	
