@@ -11,6 +11,13 @@ body{
 
 #pictureframe {
 	height: 40vh;
+	
+	background-size:cover;
+}
+#pictureframe img{
+	object-fit: cover;
+	width:100%;
+	height:auto;
 }
 
 #bgVideo {
@@ -41,6 +48,7 @@ body{
 }
 
 #content-wrap {
+	width:100%;
 	z-index: 6;
 	position: relative;
 	background:white;

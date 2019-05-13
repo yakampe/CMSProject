@@ -13,10 +13,13 @@
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 	<th:block th:insert="fragments/pictureframe">
 	</th:block>
-	<div class="container" id="content-wrap">
+	<div id="content-wrap">
+	<div class="container">
 			<h1 th:unless="${page == null}" th:utext="${page.pageTitle}"></h1>
 			<div class="pageContent" th:unless="${page == null}"
 				th:utext="${page.content}"></div>
+	</div>
+	
 	</div>
 
 
