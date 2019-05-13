@@ -73,6 +73,12 @@ body{
 .pageContent {
 	padding-bottom: 1em;
 }
+.pageContent img{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
 
 .myhr {
 	border: 0;

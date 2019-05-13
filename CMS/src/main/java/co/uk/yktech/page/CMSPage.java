@@ -34,7 +34,7 @@ public class CMSPage {
 		this.pageTitle = pageTitle;
 	}
 	
-	@Column(columnDefinition="TEXT")
+	@Column(columnDefinition="MEDIUMTEXT")
 	public String getContent() {
 		return content;
 	}
