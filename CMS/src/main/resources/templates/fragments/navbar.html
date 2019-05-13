@@ -13,6 +13,17 @@
 				th:href="@{${'/page/' +page.pageTitle}}" th:text="${page.pageTitle}"></a>
 		</ul>
 
+		<ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN')">
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Admin </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" th:href="@{/admin/pages}">Pages</a>
+					<a class="dropdown-item" th:href="@{/admin/articles}">Articles</a>
+				</div></li>
+		</ul>
+
 
 
 		<ul class="navbar-nav">

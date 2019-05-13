@@ -1,10 +1,13 @@
 body{
 	background:white;
+	color:black;
 }
 #navbar-wrap {
 	display: none;
 }
-
+.mt-10{
+	margin-top:10vh;
+}
 #frame {
 	height: 100vh;
 }
@@ -32,7 +35,11 @@ body{
 	opacity: 0.65;
 }
 
-#videoOverlay h1, p {
+#videoOverlay h1 {
+	color: white;
+}
+
+#videoOverlay p {
 	color: white;
 }
 

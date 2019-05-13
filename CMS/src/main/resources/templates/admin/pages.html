@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="fragments/header :: head">
+</th:block>
+</head>
+<body>
+	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
+
+	<div class="container mt-10">
+		<div class="card-columns">
+			<th:block th:each="page:${pages}">
+			
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="/res/img/testbg.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title" th:text="${page.pageTitle}">Page title</h5>
+					<p class="card-text" th:text="${page.content.substring(page.content.indexOf('<p>')+3,300)+'...'}">Page content</p>
+					<a th:href="@{${'/admin/editPage/' +page.pageTitle}}" class="btn btn-primary">Edit page</a>
+				</div>
+			</div>
+			</th:block>
+
+		</div>
+	</div>
+</body>
+</html>
