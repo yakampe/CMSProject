@@ -48,6 +48,7 @@ public class AdminController {
 	@PostMapping("/savePage")
 	public String savePage(@ModelAttribute("page") CMSPage page) {
 		CMSPageRepo.save(page);
+		logger.info("Saving page with ID ==" +page.getID());
 		return "admin-homepage";
 	}
 	

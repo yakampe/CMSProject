@@ -13,30 +13,38 @@
 <body>
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 	<div class="container mt-10">
-		<form action="#" th:action="@{/admin/savePage}"
-			th:object="${page}" method="post">
-			<input th:field="*{pageTitle}"/>
-		<div id="editor">
-			<th:block th:utext=${page.content}>
-			</th:block>
-		</div>
-			Display on main page :: <input type="checkbox" th:field="*{DisplayOnMainPage}" />
-			<input hidden th:field="*{ID}"/>
+		<form action="#" th:action="@{/admin/savePage}" th:object="${page}"
+			method="post">
+			<div class="form-group">
+				<label for="pageTitle">Page title</label> <input
+					class="form-control" id="pageTitle" th:field="*{pageTitle}" /> <label>Page
+					Content</label>
+				<div id="editor">
+					<th:block th:utext=${page.content}>
+					</th:block>
+				</div>
+				<div class="form-check">
+				<input type="checkbox" class="form-check-input"
+					th:field="*{DisplayOnMainPage}" id="displayOnMainPage" />
+					<label class="form-check-label" for="displayOnMainPage">Display
+						on main page</label>
+				</div>
+			</div>
+			<button class="btn btn-primary" onClick="saveForm()" type="submit">Save
+				page</button>
 			<textarea hidden th:field="*{content}"></textarea>
-			<input onClick="saveForm()" type="submit" value="Submit">
+			<input hidden th:field="*{ID}" />
 		</form>
 
-		<button>submit</button>
 	</div>
 	<footer>
 		<script>
 			var quill = new Quill('#editor', {
 				theme : 'snow'
 			});
-			function saveForm(){
+			function saveForm() {
 				$("#content").val($(".ql-editor").get(0).innerHTML);
 			}
-			
 		</script>
 	</footer>
 
