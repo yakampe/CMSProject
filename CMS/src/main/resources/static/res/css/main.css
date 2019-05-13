@@ -1,3 +1,6 @@
+body{
+	background:white;
+}
 #navbar-wrap {
 	display: none;
 }
@@ -38,9 +41,9 @@
 }
 
 #content-wrap {
-	position: relative;
 	z-index: 6;
 	position: relative;
+	background:white;
 }
 
 #content-wrap p {

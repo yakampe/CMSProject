@@ -14,12 +14,13 @@
 	<th:block th:insert="fragments/pictureframe">
 	</th:block>
 	<div class="container" id="content-wrap">
-		<h1 th:unless="${page == null}" th:utext="${page.pageTitle}"></h1>
-		<div class="pageContent" th:unless="${page == null}" th:utext="${page.content}"></div>
+			<h1 th:unless="${page == null}" th:utext="${page.pageTitle}"></h1>
+			<div class="pageContent" th:unless="${page == null}"
+				th:utext="${page.content}"></div>
 	</div>
 
 
-	<div th:insert="fragments/footer" id="footer-wrap"></div>
+	<div th:insert="fragments/footer" id="footer-wrap	"></div>
 
 
 </body>

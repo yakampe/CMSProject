@@ -1,0 +1,59 @@
+#fdvd1 {
+	transform: skewY(2deg) translateY(-100%);
+	position: absolute;
+	z-index: 4;
+	height: 3em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.75;
+}
+
+#fdvd2 {
+	transform: skewY(3deg) translateY(-70%);
+	position: absolute;
+	z-index: 4;
+	height: 3em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.5;
+}
+
+#fdvd3 {
+	transform: skewY(4deg) translateY(-50%);
+	position: absolute;
+	z-index: 4;
+	height: 3em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.25;
+}
+
+#fdvd4 {
+	transform: skewY(-2deg) translateY(-100%);
+	position: absolute;
+	z-index: 4;
+	height: 3em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.75;
+}
+
+#fdvd5 {
+	transform: skewY(-3deg) translateY(-70%);
+	position: absolute;
+	z-index: 4;
+	height: 3em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.5;
+}
+
+#fdvd6 {
+	transform: skewY(-4deg) translateY(-50%);
+	position: absolute;
+	z-index: 4;
+	height: 3em;
+	background-color: white;
+	width: 100%;
+	opacity: 0.25;
+}
