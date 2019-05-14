@@ -1,26 +1,22 @@
-body{
-	background:white;
-	color:black;
+body {
+	background: white;
+	color: black;
 }
+
 #navbar-wrap {
 	display: none;
 }
-.mt-10{
-	margin-top:10vh;
+
+.mt-10 {
+	margin-top: 10vh;
 }
+
 #frame {
 	height: 100vh;
 }
 
 #pictureframe {
 	height: 40vh;
-	
-	background-size:cover;
-}
-#pictureframe img{
-	object-fit: cover;
-	width:100%;
-	height:auto;
 }
 
 #bgVideo {
@@ -55,10 +51,10 @@ body{
 }
 
 #content-wrap {
-	width:100%;
+	width: 100%;
 	z-index: 6;
 	position: relative;
-	background:white;
+	background: white;
 }
 
 #content-wrap p {
@@ -73,17 +69,19 @@ body{
 .pageContent {
 	padding-bottom: 1em;
 }
-.pageContent img{
+
+.pageContent img {
 	display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
 }
-.ql-editor img{
+
+.ql-editor img {
 	display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
 }
 
 .myhr {

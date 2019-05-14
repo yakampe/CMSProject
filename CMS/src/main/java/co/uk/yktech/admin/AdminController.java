@@ -73,7 +73,7 @@ public class AdminController {
 		}
 		CMSPageRepo.save(page);
 		// logger.info("Saving page with ID ==" +page.getID());
-		return "admin-homepage";
+		return "editPage/"+page.getPageTitle();
 	}
 
 

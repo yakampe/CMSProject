@@ -9,15 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class ArticleAuthor {
-
+public class ArticleCategory {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
-	private String displayName;
-	private String imgLocation;
-	@OneToMany(mappedBy = "theAuthor")
+	private String categoryName;
+	@OneToMany(mappedBy="theCategory")
 	private List<CMSArticle> Articles;
+	
+	
+	
 
 	public int getID() {
 		return ID;
@@ -35,20 +37,13 @@ public class ArticleAuthor {
 		Articles = articles;
 	}
 
-	public String getDisplayName() {
-		return displayName;
+	public String getCategoryName() {
+		return categoryName;
 	}
 
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
-
-	public String getImgLocation() {
-		return imgLocation;
-	}
-
-	public void setImgLocation(String imgLocation) {
-		this.imgLocation = imgLocation;
-	}
-
+	
+	
 }

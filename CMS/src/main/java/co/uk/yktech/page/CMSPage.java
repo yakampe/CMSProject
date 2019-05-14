@@ -9,6 +9,8 @@ import javax.persistence.Id;
 @Entity
 public class CMSPage {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
 	private int pageOrder;
 	private String pageTitle;
@@ -16,8 +18,6 @@ public class CMSPage {
 	private boolean isDisplayOnMainPage;
 	private String headerImage;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getID() {
 		return ID;
 	}
@@ -33,8 +33,8 @@ public class CMSPage {
 	public void setPageTitle(String pageTitle) {
 		this.pageTitle = pageTitle;
 	}
-	
-	@Column(columnDefinition="MEDIUMTEXT")
+
+	@Column(columnDefinition = "MEDIUMTEXT")
 	public String getContent() {
 		return content;
 	}
@@ -67,6 +67,4 @@ public class CMSPage {
 		this.headerImage = headerImage;
 	}
 
-	
-	
 }
