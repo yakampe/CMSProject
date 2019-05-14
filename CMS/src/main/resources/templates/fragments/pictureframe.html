@@ -1,5 +1,5 @@
 <div class="jumbotron jumbotron-fluid w-100" id="pictureframe"
-th:style="'background-image:url(' + @{/res/img/testbg.jpg} + ');'">
+th:style="'background-image:url(' + @{${page.headerImage}} + ');'">
 </div>
 <th:block th:insert="fragments/dividers/top" >
 

@@ -12,6 +12,7 @@ public class CmsApplication extends AbstractAnnotationConfigDispatcherServletIni
 	public static void main(String[] args) {
 		SpringApplication.run(CmsApplication.class, args);
 	}
+	
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {

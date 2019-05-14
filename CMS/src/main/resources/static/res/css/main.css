@@ -79,6 +79,12 @@ body{
   margin-right: auto;
   width: auto;
 }
+.ql-editor img{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
 
 .myhr {
 	border: 0;
