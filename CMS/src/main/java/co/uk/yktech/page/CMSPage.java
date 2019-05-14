@@ -14,6 +14,7 @@ public class CMSPage {
 	private int ID;
 	private int pageOrder;
 	private String pageTitle;
+	@Column(columnDefinition = "MEDIUMTEXT")
 	private String content;
 	private boolean isDisplayOnMainPage;
 	private String headerImage;
@@ -34,7 +35,6 @@ public class CMSPage {
 		this.pageTitle = pageTitle;
 	}
 
-	@Column(columnDefinition = "MEDIUMTEXT")
 	public String getContent() {
 		return content;
 	}

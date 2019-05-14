@@ -1,6 +1,16 @@
+<!--/* Pictureframe for page */-->
+<th:block th:if="${page != null}">
 <div class="jumbotron jumbotron-fluid w-100" id="pictureframe"
 th:style="'background-image:url(' + @{${page.headerImage}} + ');'">
 </div>
-<th:block th:insert="fragments/dividers/top" >
+</th:block>
+<!--/* Pictureframe for blog-home */-->
+<th:block th:if="${page == null}">
+<div class="jumbotron jumbotron-fluid w-100" id="pictureframe"
+th:style="'background-image:url(' + @{/} + ');'">
+</div>
+</th:block>
 
+
+<th:block th:insert="fragments/dividers/top" >
 </th:block>

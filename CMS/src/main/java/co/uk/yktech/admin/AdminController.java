@@ -33,9 +33,9 @@ public class AdminController {
 	@Autowired
 	UploadService uploadService;
 
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String home() {
-		return "admin-homepage";
+		return "admin/admin-homepage";
 	}
 
 	@GetMapping("/pages")
@@ -73,7 +73,7 @@ public class AdminController {
 		}
 		CMSPageRepo.save(page);
 		// logger.info("Saving page with ID ==" +page.getID());
-		return "editPage/"+page.getPageTitle();
+		return "admin/editPage/"+page.getPageTitle();
 	}
 
 
