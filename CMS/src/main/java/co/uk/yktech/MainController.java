@@ -31,13 +31,13 @@ public class MainController {
 	CMSPageRepository CMSPageRepo;
 	@Autowired
 	CMSArticleRepository CMSArticleRepo;
-	
+
 	@Autowired
 	ArticleTagRepository ArticleTagRepo;
-	
+
 	@Autowired
 	ArticleAuthorRepository ArticleAuthorRepo;
-	
+
 	@Autowired
 	ArticleCategoryRepository ArticleCategoryRepo;
 
@@ -47,7 +47,6 @@ public class MainController {
 		theModel.addAttribute("pages", pages);
 		return "homepage";
 	}
-
 
 	@GetMapping("/add")
 	public String testAdd() {
@@ -71,30 +70,39 @@ public class MainController {
 			c.setDisplayOnMainPage(true);
 			CMSPageRepo.save(c);
 		}
-		
+
+		ArticleTag b = new ArticleTag();
+		ArticleTag b1 = new ArticleTag();
+		ArticleTag b2 = new ArticleTag();
+		ArticleTag b3 = new ArticleTag();
+		ArticleTag b4 = new ArticleTag();
+		b.setTagName("Tag Name");
+		b1.setTagName("TN1");
+		b2.setTagName("TN2");
+		b3.setTagName("TN3");
+		b4.setTagName("single");
+		ArticleTagRepo.save(b);
+		ArticleTagRepo.save(b1);
+		ArticleTagRepo.save(b2);
+		ArticleTagRepo.save(b3);
+		ArticleTagRepo.save(b4);
+
 		for (int i = 0; i < 5; i++) {
 			CMSArticle a = new CMSArticle();
-			ArticleTag b = new ArticleTag();
-			ArticleTag b1 = new ArticleTag();
-			ArticleTag b2 = new ArticleTag();
-			ArticleTag b3 = new ArticleTag();
-			b.setTagName("Tag Name");
-			b1.setTagName("TN1");
-			b2.setTagName("TN2");
-			b3.setTagName("TN3");
+
 			Set<ArticleTag> bs = new HashSet<>();
-			bs.add(b);
-			bs.add(b1);
-			bs.add(b2);
-			bs.add(b3);
-			
+
+			for (ArticleTag ea : ArticleTagRepo.findAll()) {
+				bs.add(ea);
+			}
+			if (i > 0)
+				bs.remove(b4);
 			ArticleAuthor c = new ArticleAuthor();
 			c.setDisplayName("Author Name");
-			
-			ArticleCategory d = new  ArticleCategory();
+
+			ArticleCategory d = new ArticleCategory();
 			d.setCategoryName("Category Name" + i);
-			
-		
+
 			a.setTitle("Article Title");
 			a.setArticleTags(bs);
 			a.setTheCategory(d);
@@ -102,21 +110,13 @@ public class MainController {
 			a.setContent(content);
 			LocalDate now = LocalDate.now();
 			a.setDatePosted(now);
-			
+
 			ArticleAuthorRepo.save(c);
-			ArticleTagRepo.save(b);
-			ArticleTagRepo.save(b1);
-			ArticleTagRepo.save(b2);
-			ArticleTagRepo.save(b3);
 			ArticleCategoryRepo.save(d);
-			
-			
+
 			CMSArticleRepo.save(a);
 		}
-		
-		
-		
-		
+
 		return "forward:/";
 	}
 

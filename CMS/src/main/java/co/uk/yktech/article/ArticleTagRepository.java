@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArticleTagRepository extends CrudRepository<ArticleTag, Long>{
-
+	 public ArticleTag findByTagName(String tagName);
+	 public boolean existsByTagName(String tagName);
 }

@@ -14,9 +14,11 @@
 <body>
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 	<div class="container mt-10">
-		<form action="#" th:action="@{${'/admin/editArticle/' + article.ID}}"
+		<div th:text="${ID == null}"></div>
+		<form action="#" th:action="@{/admin/saveArticle}"
 			th:object="${article}" method="post" enctype="multipart/form-data">
 			<input hidden th:field="*{ID}" />
+			<textarea hidden th:field="*{content}"></textarea>
 			<div class="form-group">
 				<label for="articleTitle">Article title</label> <input
 					class="form-control" id="pageTitle" th:field="*{title}" /> <label>Article
@@ -24,24 +26,27 @@
 				<div id="editor">
 					<th:block th:utext=${article.content}>
 					</th:block>
-					<textarea hidden th:field="*{content}"></textarea>
 				</div>
 
 
 
 				<label for="category">Category</label> <input class="form-control"
-					id="category" th:field="*{theCategory.categoryName}" /> 
+					id="category" th:field="*{theCategory.categoryName}" /> <label
+					for="author">Author</label> <input class="form-control" id="author"
+					th:field="*{theAuthor.displayName}" />
 				<!--/* Outputting list to remove square brackets */-->
-				<label for="tags">Tags</label> <input class="form-control" id="category"
+				<label for="tags">Tags</label> <input th:if="${article.articleTags}"
+					class="form-control" id="category"
 					th:object="${article.articleTags}"
-					th:value="*{toString().substring(1, toString().length()-1)}" name="tagString"/>
+					th:value="*{toString().substring(1, toString().length()-1)}"
+					name="tagString" /> <input th:if="${article.articleTags == null}"
+					class="form-control" id="tags" name="tagString" />
 
-	<button class="btn btn-primary" onClick="saveForm()" type="submit">Save</button>
-	</form>
 			</div>
+			<button class="btn btn-primary" onClick="saveForm()" type="submit">Save</button>
+		</form>
 	</div>
 
 
-	</div>
 </body>
 </html>

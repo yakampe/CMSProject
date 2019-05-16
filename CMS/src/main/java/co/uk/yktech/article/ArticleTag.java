@@ -44,7 +44,7 @@ public class ArticleTag {
 
 	@Override
 	public String toString() {
-		return "tagName";
+		return this.getTagName();
 	}
 	
 	

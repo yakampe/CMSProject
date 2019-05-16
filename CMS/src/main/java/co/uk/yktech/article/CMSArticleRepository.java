@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CMSArticleRepository extends CrudRepository<CMSArticle, Long> {
-
+	public CMSArticle findTopByOrderByIDDesc();
 }

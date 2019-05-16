@@ -94,20 +94,31 @@ public class AdminController {
 		return "admin/articles";
 	}
 
-	@GetMapping("/editArticle/{ID}")
-	public String editArticle(@PathVariable Long ID, Model theModel) {
-		logger.info("Loading article for editing with ID == " + ID);
+	@GetMapping("/editArticle/{articleID}")
+	public String editArticle(@PathVariable Long articleID, Model theModel) {
+		logger.info("Loading article for editing with ID == " + articleID);
 
-		CMSArticle article = CMSArticleRepo.findById(ID).get();
+		CMSArticle article = CMSArticleRepo.findById(articleID).get();
 		theModel.addAttribute("article", article);
 		return "admin/editarticle";
 	}
 
-	@PostMapping("/editArticle/{ID}")
+	@GetMapping("/editArticle/newArticle")
+	public String editArticle(Model theModel) {
+		CMSArticle article = new CMSArticle();
+		theModel.addAttribute("article", article);
+		return "admin/editarticle";
+	}
+
+	@PostMapping("/saveArticle")
 	public String saveArticle(@RequestParam("tagString") String tagString,
 			@ModelAttribute("article") CMSArticle theArticle) {
 
-		//articleHelper.saveArticle(theArticle);
+		if (theArticle.getID() == null)
+			articleHelper.saveArticle(theArticle, tagString, true);
+		else
+			articleHelper.saveArticle(theArticle, tagString, false);
+
 		return "redirect:/admin/editArticle/" + theArticle.getID();
 	}
 
