@@ -1,5 +1,9 @@
 package co.uk.yktech;
 
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import co.uk.yktech.article.ArticleAuthor;
+import co.uk.yktech.article.ArticleAuthorRepository;
+import co.uk.yktech.article.ArticleCategory;
+import co.uk.yktech.article.ArticleCategoryRepository;
+import co.uk.yktech.article.ArticleTag;
+import co.uk.yktech.article.ArticleTagRepository;
+import co.uk.yktech.article.CMSArticle;
+import co.uk.yktech.article.CMSArticleRepository;
 import co.uk.yktech.page.CMSPage;
 import co.uk.yktech.page.CMSPageRepository;
 
@@ -17,6 +29,17 @@ public class MainController {
 
 	@Autowired
 	CMSPageRepository CMSPageRepo;
+	@Autowired
+	CMSArticleRepository CMSArticleRepo;
+	
+	@Autowired
+	ArticleTagRepository ArticleTagRepo;
+	
+	@Autowired
+	ArticleAuthorRepository ArticleAuthorRepo;
+	
+	@Autowired
+	ArticleCategoryRepository ArticleCategoryRepo;
 
 	@GetMapping("/")
 	public String home(Model theModel) {
@@ -48,12 +71,52 @@ public class MainController {
 			c.setDisplayOnMainPage(true);
 			CMSPageRepo.save(c);
 		}
-		CMSPage c = new CMSPage();
-		c.setContent(content);
-		c.setPageTitle("Blog");
-		c.setPageOrder(9);
-		c.setDisplayOnMainPage(false);
-		CMSPageRepo.save(c);
+		
+		for (int i = 0; i < 5; i++) {
+			CMSArticle a = new CMSArticle();
+			ArticleTag b = new ArticleTag();
+			ArticleTag b1 = new ArticleTag();
+			ArticleTag b2 = new ArticleTag();
+			ArticleTag b3 = new ArticleTag();
+			b.setTagName("Tag Name");
+			b1.setTagName("TN1");
+			b2.setTagName("TN2");
+			b3.setTagName("TN3");
+			Set<ArticleTag> bs = new HashSet<>();
+			bs.add(b);
+			bs.add(b1);
+			bs.add(b2);
+			bs.add(b3);
+			
+			ArticleAuthor c = new ArticleAuthor();
+			c.setDisplayName("Author Name");
+			
+			ArticleCategory d = new  ArticleCategory();
+			d.setCategoryName("Category Name" + i);
+			
+		
+			a.setTitle("Article Title");
+			a.setArticleTags(bs);
+			a.setTheCategory(d);
+			a.setTheAuthor(c);
+			a.setContent(content);
+			LocalDate now = LocalDate.now();
+			a.setDatePosted(now);
+			
+			ArticleAuthorRepo.save(c);
+			ArticleTagRepo.save(b);
+			ArticleTagRepo.save(b1);
+			ArticleTagRepo.save(b2);
+			ArticleTagRepo.save(b3);
+			ArticleCategoryRepo.save(d);
+			
+			
+			CMSArticleRepo.save(a);
+		}
+		
+		
+		
+		
 		return "forward:/";
 	}
 

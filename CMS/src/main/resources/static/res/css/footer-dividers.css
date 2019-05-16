@@ -11,7 +11,7 @@
 #fdvd2 {
 	transform: skewY(3deg) translateY(-70%);
 	position: absolute;
-	z-index: 4;
+	z-index: 3;
 	height: 3em;
 	background-color: white;
 	width: 100%;
@@ -21,7 +21,7 @@
 #fdvd3 {
 	transform: skewY(4deg) translateY(-50%);
 	position: absolute;
-	z-index: 4;
+	z-index: 2;
 	height: 3em;
 	background-color: white;
 	width: 100%;
@@ -41,7 +41,7 @@
 #fdvd5 {
 	transform: skewY(-3deg) translateY(-70%);
 	position: absolute;
-	z-index: 4;
+	z-index: 3;
 	height: 3em;
 	background-color: white;
 	width: 100%;
@@ -51,7 +51,7 @@
 #fdvd6 {
 	transform: skewY(-4deg) translateY(-50%);
 	position: absolute;
-	z-index: 4;
+	z-index: 2;
 	height: 3em;
 	background-color: white;
 	width: 100%;

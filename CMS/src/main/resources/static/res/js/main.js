@@ -1,6 +1,6 @@
 //show navbar in all pages apart form root
 $(function(){
-	if (window.location.href.split('/').length > 5) {
+	if (window.location.href.split('/').length < 5) {
 		window.onscroll = function() {
 			scrollFunction()
 		};

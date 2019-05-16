@@ -11,7 +11,7 @@ public class CMSPage {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int ID;
+	private Long ID;
 	private int pageOrder;
 	private String pageTitle;
 	@Column(columnDefinition = "MEDIUMTEXT")
@@ -19,11 +19,11 @@ public class CMSPage {
 	private boolean isDisplayOnMainPage;
 	private String headerImage;
 
-	public int getID() {
+	public Long getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public void setID(Long iD) {
 		ID = iD;
 	}
 

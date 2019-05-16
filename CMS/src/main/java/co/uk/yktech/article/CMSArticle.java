@@ -3,6 +3,7 @@ package co.uk.yktech.article;
 import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +17,9 @@ public class CMSArticle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int ID;
+	private Long ID;
 	private String title;
+	@Column(columnDefinition = "MEDIUMTEXT")
 	private String content;
 	private LocalDate datePosted;
 	@ManyToOne
@@ -30,11 +32,11 @@ public class CMSArticle {
 	@JoinColumn(name="article_id")
 	private Set<ArticleTag> articleTags;
 
-	public int getID() {
+	public Long getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public void setID(Long iD) {
 		ID = iD;
 	}
 

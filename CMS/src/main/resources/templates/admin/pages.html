@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org">
 <head>
@@ -19,7 +19,7 @@
 				<div class="card-body">
 					<h5 class="card-title" th:text="${page.pageTitle}">Page title</h5>
 					<p class="card-text" th:text="${page.content.substring(page.content.indexOf('<p>')+3,300)+'...'}">Page content</p>
-					<a th:href="@{${'/admin/editPage/' +page.pageTitle}}" class="btn btn-primary">Edit page</a>
+					<a th:href="@{${'/admin/editPage/' +page.ID}}" class="btn btn-primary">Edit page</a>
 				</div>
 			</div>
 			</th:block>

@@ -1,14 +1,21 @@
 <div class="blog-wrap mt-5 mb-5 pb-5">
-	<h1 class="text-center">Title</h1>
-	<h4 class="text-right">
+	<h1 class="text-center" th:text="${article.title}">Title</h1>
+	<h4 class="text-right"
+		th:utext="${article.theAuthor.displayName + ' <small class=&quot;text-muted&quot;>' + article.datePosted +'</small>'}">
 		Author <small class="text-muted">Date</small>
 	</h4>
-	<p class="mt-5">Content</p>
+	<p class="mt-5" th:utext="${article.content}">Content</p>
 
 	<div class="d-flex flex-wrap justify-content-end">
 		<div>
-			<span class="badge badge-pill badge-danger">Category</span> <span
-				class="badge badge-pill badge-secondary">Tags</span>
+			<a class="badge badge-danger" th:href="@{${'/blog/categories/' + article.theCategory.categoryName}}" 
+				th:text="${article.theCategory.categoryName}">Category</a>
+			<th:block th:each="tag:${article.articleTags}">
+				<a class="badge badge-secondary"
+					th:text="${tag.tagName}"
+					th:href="@{${'/blog/tags/' + tag.tagName}}" 
+					>Tags</a>
+			</th:block>
 		</div>
 	</div>
 

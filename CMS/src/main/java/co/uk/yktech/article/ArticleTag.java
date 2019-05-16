@@ -42,4 +42,12 @@ public class ArticleTag {
 		Articles = articles;
 	}
 
+	@Override
+	public String toString() {
+		return "tagName";
+	}
+	
+	
+	
+
 }

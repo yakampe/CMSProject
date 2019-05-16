@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="fragments/header :: head">
+</th:block>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+	rel="stylesheet">
+<script th:src="@{/res/js/text-editor-config.js}"></script>
+</head>
+<body>
+	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
+	<div class="container mt-10">
+		<form action="#" th:action="@{${'/admin/editArticle/' + article.ID}}"
+			th:object="${article}" method="post" enctype="multipart/form-data">
+			<input hidden th:field="*{ID}" />
+			<div class="form-group">
+				<label for="articleTitle">Article title</label> <input
+					class="form-control" id="pageTitle" th:field="*{title}" /> <label>Article
+					Content</label>
+				<div id="editor">
+					<th:block th:utext=${article.content}>
+					</th:block>
+					<textarea hidden th:field="*{content}"></textarea>
+				</div>
+
+
+
+				<label for="category">Category</label> <input class="form-control"
+					id="category" th:field="*{theCategory.categoryName}" /> 
+				<!--/* Outputting list to remove square brackets */-->
+				<label for="tags">Tags</label> <input class="form-control" id="category"
+					th:object="${article.articleTags}"
+					th:value="*{toString().substring(1, toString().length()-1)}" name="tagString"/>
+
+	<button class="btn btn-primary" onClick="saveForm()" type="submit">Save</button>
+	</form>
+			</div>
+	</div>
+
+
+	</div>
+</body>
+</html>
