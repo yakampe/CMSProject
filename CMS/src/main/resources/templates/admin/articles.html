@@ -10,18 +10,20 @@
 <body>
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 
-		<div class="container mt-10">
-			<th:block th:each="article:${articles}">
-			
-			<div th:text="${article.content}"></div>
+	<div class="container mt-10">
+		<th:block th:each="article:${articles}">
+			<h3 th:text="${article.title}"></h3> <h4 class="text-right" th:text="${article.datePosted}"></h4>
+			<div th:text="${article.excerpt()}"></div>
 			<span th:text="${article.theAuthor.displayName}"></span>
 			<span th:text="${article.theCategory.categoryName}"></span>
 			<th:block th:each="tag:${article.articleTags}">
-			<span th:text="${tag.tagName}"></span>
+				<span th:text="${tag.tagName}"></span>
 			</th:block>
+			<br>
+			<a th:href="@{${'/admin/editArticle/' + article.ID}}" class="btn btn-primary">Edit Article</a>
 			<hr>
-			</th:block>
+		</th:block>
 
-		</div>
+	</div>
 </body>
 </html>

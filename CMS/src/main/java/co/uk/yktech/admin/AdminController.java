@@ -1,8 +1,5 @@
 package co.uk.yktech.admin;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import co.uk.yktech.UploadService;
 import co.uk.yktech.article.ArticleHelperService;
-import co.uk.yktech.article.ArticleTag;
 import co.uk.yktech.article.ArticleTagRepository;
 import co.uk.yktech.article.CMSArticle;
 import co.uk.yktech.article.CMSArticleRepository;
@@ -35,9 +31,6 @@ public class AdminController {
 	CMSPageRepository CMSPageRepo;
 	@Autowired
 	CMSArticleRepository CMSArticleRepo;
-
-	@Autowired
-	ArticleTagRepository ArticleTagRepo;
 
 	@Autowired
 	ArticleHelperService articleHelper;

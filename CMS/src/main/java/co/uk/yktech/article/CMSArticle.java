@@ -31,6 +31,7 @@ public class CMSArticle {
 	@ManyToMany
 	@JoinColumn(name="article_id")
 	private Set<ArticleTag> articleTags;
+	private boolean pinned;
 
 	public Long getID() {
 		return ID;
@@ -87,6 +88,20 @@ public class CMSArticle {
 
 	public void setTheAuthor(ArticleAuthor theAuthor) {
 		this.theAuthor = theAuthor;
+	}
+	
+	public boolean isPinned() {
+		return pinned;
+	}
+
+	public void setPinned(boolean pinned) {
+		this.pinned = pinned;
+	}
+
+	public String excerpt() {
+		String full = this.getContent().replaceAll("<[^>]*>", "");
+		String excerpt = (full.length()>300) ? full.substring(0, 300) + "..." : full + "...";
+		return excerpt;
 	}
 
 }

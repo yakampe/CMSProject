@@ -1,5 +1,6 @@
 package co.uk.yktech.article;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,13 +51,26 @@ public class ArticleHelperService {
 	}
 
 	public void saveArticle(CMSArticle theArticle, String tagString, boolean newArticle) {
-		//set new article tags using helper
+		// set new article tags using helper
 		theArticle.setArticleTags(updateTags(tagString, theArticle.getID(), newArticle));
+		if (theArticle.getDatePosted() == null)
+			theArticle.setDatePosted(LocalDate.now());
+		theArticle.setTheCategory(createOrUpdateCategory(theArticle.getTheCategory().getCategoryName()));
 		
 
 		ArticleAuthorRepo.save(theArticle.getTheAuthor());
-		ArticleCategoryRepo.save(theArticle.getTheCategory());
 		CMSArticleRepo.save(theArticle);
+	}
+	
+	public ArticleCategory createOrUpdateCategory(String catName) {
+		ArticleCategory newCat = new ArticleCategory();
+		if(ArticleCategoryRepo.existsByCategoryName(catName)) {
+			newCat = ArticleCategoryRepo.findByCategoryName(catName);
+		} else {
+			newCat.setCategoryName(catName);
+		}
+		ArticleCategoryRepo.save(newCat);
+		return newCat;
 	}
 
 	public Set<ArticleTag> updateTags(String tagString, Long articleID, boolean newArticle) {

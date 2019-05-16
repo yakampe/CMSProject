@@ -14,7 +14,6 @@
 <body>
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 	<div class="container mt-10">
-		<div th:text="${ID == null}"></div>
 		<form action="#" th:action="@{/admin/saveArticle}"
 			th:object="${article}" method="post" enctype="multipart/form-data">
 			<input hidden th:field="*{ID}" />
@@ -34,6 +33,8 @@
 					id="category" th:field="*{theCategory.categoryName}" /> <label
 					for="author">Author</label> <input class="form-control" id="author"
 					th:field="*{theAuthor.displayName}" />
+
+
 				<!--/* Outputting list to remove square brackets */-->
 				<label for="tags">Tags</label> <input th:if="${article.articleTags}"
 					class="form-control" id="category"
