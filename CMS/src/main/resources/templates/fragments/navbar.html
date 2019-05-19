@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<!-- <div class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 	<a class="navbar-brand" href="/">YKTech</a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -35,5 +35,29 @@
 			<li class="nav-item"><a class="nav-link" th:href="@{/add}">add
 					pages</a></li>
 		</ul>
+	</div>
+</div> -->
+<a type="button" id="menuButton">
+	<div id="menu" class="unselectable">
+		<span>&#9776;</span>
+	</div>
+</a>
+
+
+<div id="mainMenu">
+	<div class="container mt-10" id="mainMenuContent">
+		<ul class="list-unstyled">
+			<li><img id="menuLogo" th:src="@{/res/img/logo.svg}"/></li>
+			<li class="menuLink"><a class=""
+				th:href="@{/}">Home</a>
+				<div class="menuhr"></div>
+			<li class="menuLink" th:each="page : ${pages}"><a class=""
+				th:href="@{${'/page/' +page.pageTitle}}" th:text="${page.pageTitle}"></a>
+				<div class="menuhr"></div>
+			<li class="menuLink"><a th:href="@{/blog/}">Blog</a>
+				<div class="menuhr"></div>
+			</li>
+		</ul>
+
 	</div>
 </div>

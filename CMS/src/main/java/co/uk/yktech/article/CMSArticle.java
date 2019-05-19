@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class CMSArticle {
 
@@ -21,6 +23,7 @@ public class CMSArticle {
 	private String title;
 	@Column(columnDefinition = "MEDIUMTEXT")
 	private String content;
+	@DateTimeFormat(pattern = "dd MMM yyyy")
 	private LocalDate datePosted;
 	@ManyToOne
 	@JoinColumn(name="author_id")

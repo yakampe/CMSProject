@@ -12,12 +12,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
+import co.uk.yktech.page.CMSPageRepository;
 
 @Service
 public class ArticleHelperService {
 
 	Logger logger = LoggerFactory.getLogger(ArticleHelperService.class);
 
+	@Autowired
+	CMSPageRepository CMSPageRepo;
+	
 	@Autowired
 	CMSArticleRepository CMSArticleRepo;
 
@@ -123,6 +129,14 @@ public class ArticleHelperService {
 			}
 		}
 		return newTags;
+	}
+	
+	public Model blogPageLinks(Model theModel) {
+		theModel.addAttribute("newestArticles", CMSArticleRepo.findTop5ByOrderByIDDesc());
+		theModel.addAttribute("pages", CMSPageRepo.findAll());
+		theModel.addAttribute("categoryLinks", getAllCategories());
+		theModel.addAttribute("tagLinks", getAllTagLinks());
+		return theModel;
 	}
 
 }

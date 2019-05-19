@@ -9,7 +9,8 @@
 <title>YKTech.co.uk</title>
 </head>
 <body>
-	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
+
+	<th:block th:insert="fragments/navbar"></th:block>
 	<th:block th:insert="fragments/pictureframe">
 	</th:block>
 	<div id="content-wrap">
@@ -17,7 +18,7 @@
 			<div class="row">
 				<div class="col-lg-3 order-1">
 
-					<div th:insert="fragments/blog/blog-sidebar" class=""></div>
+					<th:block th:insert="fragments/blog/blog-sidebar" class=""></th:block>
 				</div>
 				<div class="col-lg-8 order-lg-2">
 					<div class="container"></div>
