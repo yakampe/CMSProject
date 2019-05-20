@@ -67,4 +67,9 @@ public class CMSPage {
 		this.headerImage = headerImage;
 	}
 
+	public String excerpt() {
+		String full = this.getContent().replaceAll("<[^>]*>", "");
+		String excerpt = (full.length() > 300) ? full.substring(0, 300) + "..." : full + "...";
+		return excerpt;
+	}
 }

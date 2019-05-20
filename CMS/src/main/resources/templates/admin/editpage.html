@@ -15,7 +15,7 @@
 <body>
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 	<div class="container mt-10">
-		<form action="#" th:action="@{${'/admin/editPage/' + page.ID}}" th:object="${page}"
+		<form action="#" th:action="@{/admin/editPage/savePage}" th:object="${page}"
 			method="post" enctype="multipart/form-data">
 			<div class="form-group">
 

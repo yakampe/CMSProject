@@ -2,11 +2,14 @@ package co.uk.yktech.article;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.ColumnTransformer;
 
 @Entity
 public class ArticleAuthor {
@@ -14,6 +17,8 @@ public class ArticleAuthor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
+	@Column(columnDefinition = "BLOB")
+	@ColumnTransformer(read = "AES_DECRYPT(display_name, '${eakey}')", write = "AES_ENCRYPT(?, '${eakey}')")
 	private String displayName;
 	private String imgLocation;
 	@OneToMany(mappedBy = "theAuthor")

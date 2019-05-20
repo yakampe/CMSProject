@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import co.uk.yktech.UploadService;
 import co.uk.yktech.article.ArticleHelperService;
-import co.uk.yktech.article.ArticleTagRepository;
 import co.uk.yktech.article.CMSArticle;
 import co.uk.yktech.article.CMSArticleRepository;
 import co.uk.yktech.page.CMSPage;
@@ -61,8 +60,15 @@ public class AdminController {
 		}
 		return "admin/editpage";
 	}
+	
+	@GetMapping("/editPage/newPage")
+	public String newPage(Model theModel) {
+		CMSPage page = new CMSPage();
+		theModel.addAttribute("page", page);
+		return "admin/editpage";
+	}
 
-	@PostMapping("/editPage/{ID}")
+	@PostMapping("/editPage/savePage")
 	public String savePage(@RequestParam("file") MultipartFile file, @ModelAttribute("page") CMSPage page) {
 		if (!file.isEmpty()) {
 			// Set extension within a String
