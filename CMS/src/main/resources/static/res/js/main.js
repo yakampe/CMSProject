@@ -26,6 +26,8 @@ $(function() {
 	});
 
 	// blog sidebar
+	if($("#sidebar").length > 0){
+		
 	var $sidebar = $("#sidebar"), $window = $(window), offset = $sidebar
 			.offset(), topPadding = 150;
 
@@ -40,6 +42,7 @@ $(function() {
 			});
 		}
 	});
+	}
 });
 
 function menuLinks(open) {

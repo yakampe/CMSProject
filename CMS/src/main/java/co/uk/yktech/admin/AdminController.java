@@ -19,6 +19,7 @@ import co.uk.yktech.article.CMSArticle;
 import co.uk.yktech.article.CMSArticleRepository;
 import co.uk.yktech.page.CMSPage;
 import co.uk.yktech.page.CMSPageRepository;
+import co.uk.yktech.page.PageHelperService;
 
 @Controller
 @RequestMapping("/admin")
@@ -33,6 +34,9 @@ public class AdminController {
 
 	@Autowired
 	ArticleHelperService articleHelper;
+	
+	@Autowired
+	PageHelperService pageHelper;
 
 	@Autowired
 	UploadService uploadService;
@@ -44,7 +48,7 @@ public class AdminController {
 
 	@GetMapping("/pages")
 	public String showPages(Model theModel) {
-		Iterable<CMSPage> pages = CMSPageRepo.findAll();
+		Iterable<CMSPage> pages = CMSPageRepo.findAllByOrderByPageOrderAsc();
 		theModel.addAttribute("pages", pages);
 		return "admin/pages";
 	}
@@ -59,6 +63,18 @@ public class AdminController {
 			logger.warn("Page Not Found");
 		}
 		return "admin/editpage";
+	}
+	@GetMapping("/editPage/priority/{ID}")
+	public String priority(@PathVariable Long ID, Model theModel, @RequestParam String priority) {
+		if(priority.equals("up")) {
+			pageHelper.adjustPageUp(ID);
+			logger.info("pressed up");
+		} else {
+			pageHelper.adjustPageDown(ID);
+			logger.info("pressed down");
+		}
+		
+		return "redirect:/admin/pages";
 	}
 	
 	@GetMapping("/editPage/newPage")

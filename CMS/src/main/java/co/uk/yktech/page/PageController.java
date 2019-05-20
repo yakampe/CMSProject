@@ -20,7 +20,7 @@ public class PageController {
 	public String getPage(@PathVariable String pageTitle, Model theModel) {
 		logger.info("Loading page with title == " +pageTitle);
 		try {
-		Iterable<CMSPage> pages = CMSPageRepo.findAll();
+		Iterable<CMSPage> pages = CMSPageRepo.findAllByOrderByPageOrderAsc();
 		theModel.addAttribute("pages", pages);
 		CMSPage cmspage = CMSPageRepo.findByPageTitle(pageTitle).get(0);
 		theModel.addAttribute("page", cmspage);
