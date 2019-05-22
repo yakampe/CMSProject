@@ -1,17 +1,25 @@
 
 
-<div class="container">
 <th:block th:each="page, iterStat : ${pages}">
-<th:block th:if="${page.DisplayOnMainPage == true}">
-<div class="row">
-	<div class="col-xs-12">
-		<h1 th:text="${page.pageTitle}">Title</h1>
-		<div class="pageContent" th:utext="${page.content}">Content</div>
-	</div>
-</div>
-<th:block th:if="${iterStat.index < iterStat.size-1}">
-<hr class="mt-2 mb-2 myhr">
+	<th:block th:if="${page.DisplayOnMainPage == true}">
+		<th:block th:if="${iterStat.index != 0}">
+
+
+			<div class="mainPagePicture"
+				th:style="'background-image:url(' + @{${page.headerImage}} + ');'">
+			</div>
+
+		</th:block>
+		<div class="container">
+		<div class="container">
+			<div class="row position-relative">
+				<div class="col-xs-12">
+					<h1 th:text="${page.pageTitle}">Title</h1>
+					<div class="pageContent" th:utext="${page.content}">Content</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</th:block>
 </th:block>
-</th:block>
-</th:block>
-</div>

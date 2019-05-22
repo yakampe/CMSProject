@@ -20,7 +20,7 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home(Model theModel) {
-		Iterable<CMSPage> pages = CMSPageRepo.findAll();
+		Iterable<CMSPage> pages = CMSPageRepo.findAllByOrderByPageOrderAsc();
 		theModel.addAttribute("pages", pages);
 		return "homepage";
 	}

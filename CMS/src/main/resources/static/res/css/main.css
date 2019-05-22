@@ -44,10 +44,12 @@ div {
 	position: fixed;
 	z-index: 3005;
 }
+
 #addButton {
 	position: fixed;
 	z-index: 3005;
 }
+
 #add {
 	display: table;
 	marign: 0 auto;
@@ -63,15 +65,15 @@ div {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, .65);
 	text-decoration: none;
 	color: black;
-	font-weight:1000;
+	font-weight: 1000;
 }
+
 #add>span {
 	font-size: 1.5em;
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
 }
-
 
 #mainMenu {
 	height: 100vh;
@@ -122,6 +124,7 @@ div {
 .mt-10 {
 	margin-top: 10vh;
 }
+
 .pb-5 {
 	padding-bottom: 5vh;
 }
@@ -131,7 +134,9 @@ div {
 }
 
 #pictureframe {
-	height: 40vh;
+	height: 60vh;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #bgVideo {
@@ -176,6 +181,9 @@ div {
 	margin-bottom: 1vh;
 }
 
+.text-padding{
+}
+
 #content-wrap {
 	width: 100%;
 	z-index: 6;
@@ -190,6 +198,18 @@ div {
 #content-wrap h1 {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+}
+
+.mainPagePicture {
+	 margin-top: 2.5vh;
+	margin-bottom: 2.5vh;
+	height: 40vh;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: inset 0px 110px 21px -90px rgba(184, 195, 209, 0.61), 
+inset 0px -110px 21px -90px rgba(184, 195, 209, 0.61);
 }
 
 .pageContent {
