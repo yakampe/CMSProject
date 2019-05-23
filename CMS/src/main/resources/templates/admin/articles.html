@@ -23,6 +23,8 @@
 			<br>
 			<a th:href="@{${'/admin/editArticle/' + article.ID}}"
 				class="btn btn-primary">Edit Article</a>
+			<a th:href="@{${'/admin/deleteArticle/' + article.ID}}"
+				class="btn btn-danger">Delete Article</a>
 			<hr>
 		</th:block>
 		<a type="button" id="addButton"

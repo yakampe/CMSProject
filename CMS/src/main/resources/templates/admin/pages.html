@@ -20,7 +20,10 @@
 					<h5 class="card-title" th:text="${page.pageTitle}">Page title</h5>
 					<p class="card-text" th:text="${page.excerpt()}">Page content</p>
 					<a th:href="@{${'/admin/editPage/' +page.ID}}"
-						class="btn btn-primary">Edit page</a> <span class="float-right">
+						class="btn btn-primary">Edit page</a>
+					<a th:href="@{${'/admin/deletePage/' +page.ID}}"
+						class="btn btn-danger">Delete page</a>
+						 <span class="float-right">
 						<a
 						th:href="@{${'/admin/editPage/priority/'+page.ID+'?priority=up'}}">
 							up </a> / <a

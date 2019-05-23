@@ -65,6 +65,12 @@ public class AdminController {
 		return "admin/editpage";
 	}
 
+	@GetMapping("/deletePage/{ID}")
+	public String deletePage(@PathVariable Long ID, Model theModel) {
+		CMSPageRepo.deleteById(ID);
+		return "redirect:/admin/pages";
+	}
+
 	@GetMapping("/editPage/priority/{ID}")
 	public String priority(@PathVariable Long ID, Model theModel, @RequestParam String priority) {
 		if (priority.equals("up")) {
@@ -119,6 +125,12 @@ public class AdminController {
 		CMSArticle article = CMSArticleRepo.findById(articleID).get();
 		theModel.addAttribute("article", article);
 		return "admin/editarticle";
+	}
+
+	@GetMapping("/deleteArticle/{articleID}")
+	public String deleteArticle(@PathVariable Long articleID, Model theModel) {
+		CMSArticleRepo.deleteById(articleID);
+		return "redirect:/admin/articles";
 	}
 
 	@GetMapping("/editArticle/newArticle")
