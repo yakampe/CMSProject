@@ -12,7 +12,7 @@
 	<div th:insert="fragments/navbar" id="navbar-wrap"></div>
 	<th:block th:insert="fragments/videoframe">
 	</th:block>
-	<div id="content-wrap"  class="pb-5">
+	<div id="content-wrap"  class="pb-5" th:fragment="noerror">
 		<div th:insert="fragments/content"></div>
 	</div>
 	<div th:insert="fragments/footer" id="footer-wrap"></div>
