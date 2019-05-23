@@ -20,10 +20,6 @@
 
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" th:href="@{/logout}">logout</a>
-			<li class="nav-item"><a class="nav-link" th:href="@{/admin/editArticle/newArticle}">New
-					article</a></li>
-			<li class="nav-item"><a class="nav-link" th:href="@{/admin/editPage/newPage}">New
-					page</a></li>
 		</ul>
 	</div>
 </div>
@@ -40,7 +36,8 @@
 			<li><img id="menuLogo" th:src="@{/res/img/logo.svg}" /></li>
 			<li class="menuLink"><a class="" th:href="@{/}">Home</a>
 				<div class="menuhr"></div>
-			<li class="menuLink" th:each="page : ${pages}"><a class=""
+			<li class="menuLink" th:each="page : ${pages}"
+				th:if="${page.SystemPage == false}"><a class=""
 				th:href="@{${'/page/' +page.pageTitle}}" th:text="${page.pageTitle}"></a>
 				<div class="menuhr"></div>
 			<li class="menuLink"><a th:href="@{/blog/}">Blog</a>

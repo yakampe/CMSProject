@@ -1,7 +1,7 @@
 
 
 <th:block th:each="page, iterStat : ${pages}">
-	<th:block th:if="${page.DisplayOnMainPage == true}">
+	<th:block th:if="${page.DisplayOnMainPage == true && page.SystemPage == false}">
 		<th:block th:if="${iterStat.index != 0}">
 
 

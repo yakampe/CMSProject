@@ -17,6 +17,7 @@ public class CMSPage {
 	@Column(columnDefinition = "MEDIUMTEXT")
 	private String content;
 	private boolean isDisplayOnMainPage;
+	private boolean isSystemPage;
 	private String headerImage;
 
 	public Long getID() {
@@ -25,6 +26,14 @@ public class CMSPage {
 
 	public void setID(Long iD) {
 		ID = iD;
+	}
+
+	public boolean isSystemPage() {
+		return isSystemPage;
+	}
+
+	public void setSystemPage(boolean isSystemPage) {
+		this.isSystemPage = isSystemPage;
 	}
 
 	public String getPageTitle() {
