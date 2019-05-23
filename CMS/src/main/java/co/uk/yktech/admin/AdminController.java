@@ -34,7 +34,7 @@ public class AdminController {
 
 	@Autowired
 	ArticleHelperService articleHelper;
-	
+
 	@Autowired
 	PageHelperService pageHelper;
 
@@ -64,19 +64,22 @@ public class AdminController {
 		}
 		return "admin/editpage";
 	}
+
 	@GetMapping("/editPage/priority/{ID}")
 	public String priority(@PathVariable Long ID, Model theModel, @RequestParam String priority) {
-		if(priority.equals("up")) {
-			pageHelper.adjustPageUp(ID);
-			logger.info("pressed up");
-		} else {
-			pageHelper.adjustPageDown(ID);
-			logger.info("pressed down");
+		if (priority.equals("up")) {
+			pageHelper.adjustPageUp(ID, false);
+		} else if (priority.equals("down")) {
+			pageHelper.adjustPageDown(ID, false);
+		} else if (priority.equals("top")) {
+			pageHelper.adjustPageUp(ID, true);
+		} else if (priority.equals("bottom")) {
+			pageHelper.adjustPageDown(ID, true);
 		}
-		
+
 		return "redirect:/admin/pages";
 	}
-	
+
 	@GetMapping("/editPage/newPage")
 	public String newPage(Model theModel) {
 		CMSPage page = new CMSPage();
