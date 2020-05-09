@@ -1,4 +1,4 @@
 # CMSProject
 CMS Project for portfolio
 
-A CMS I am developing with Spring for my portfolio website
+A CMS I quickly developed with Spring and thymeleaf for my portfolio.
